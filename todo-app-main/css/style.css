@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    /* colors */
+    --a-color: hsl(228, 45%, 44%);
+
+    /* primary */
+    --Bright-Blue: hsl(220, 98%, 61%);
+    --Bg-linear-gradient-1: hsl(192, 100%, 67%);
+    --Bg-linear-gradient-2: hsl(280, 87%, 65%);
+
+    /* light theme */
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+    --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+    --Light-Grayish-Blue: hsl(233, 11%, 84%);
+    --Light-Dark-Grayish-Blue: hsl(236, 9%, 61%);
+    --Light-Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+    /* dark theme */
+    --Very-Dark-Blue: hsl(235, 21%, 11%);
+    --Very-Dark-Unsaturated-Blue: hsl(235, 24%, 19%);
+    --Dark-Light-Grayish-Blue: hsl(234, 39%, 85%);
+    --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+    --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+    --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+    --Dark-Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+    --linear-gradient: linear-gradient(to bottom right, var(--Bg-linear-gradient-1), var(--Bg-linear-gradient-2));
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Josefin Sans';
+    min-height: 100vh;
+    min-width: 100vw;
+    background: var(--Very-Light-Grayish-Blue);
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans';
+}
+
+.bg {
+    background-image: url(/images/bg-desktop-light.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 40%;
+    padding: 15rem;
+    position: relative;
+}
+
+.container {
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 40%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: var(--Very-Light-Gray);
+    font-size: 3rem;
+    letter-spacing: 10px;
+}
+
+.toggleBtn img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.main {
+    margin-top: 3rem;
+}
+
+.todoInput {
+    background: var(--Very-Light-Gray);
+    padding-left: 1rem;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    margin-bottom: 2.5rem;
+}
+
+.emptyRound {
+    background-color: var(--Very-Light-Gray);
+    border-radius: 50%;
+    border: 1px solid var(--Very-Light-Grayish-Blue);
+    height: 20px;
+    width: 20px;
+    padding: 1rem;
+    margin-left: 1rem;
+}
+
+#todoText {
+    width: 100%;
+    padding: 1.5rem;
+    padding-left: 2rem;
+    outline: none;
+    border: none;
+    caret-color: var(--Bright-Blue);
+    font-size: 1.5rem;
+    font-family: 'Josefin Sans';
+    background: var(--Very-Light-Gray);
+}
+
+.todoContainer {
+    background: var(--Very-Light-Gray);
+    border-radius: 3px;
+}
+
+.todoList {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo {
+    border-bottom: 1px solid var(--Light-Grayish-Blue); 
+    padding: 1.2rem;
+    cursor: move;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.roundCheckbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .roundCheckbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: var(--Very-Light-Gray);
+    border: 1px solid var(--Light-Grayish-Blue);
+    border-radius: 50%;
+  }
+  
+  .roundCheckbox:hover input ~ .checkmark {
+    background-color: var(--Very-Light-Gray)
+  }
+  
+  .roundCheckbox input:checked ~ .checkmark {
+    background: var(--linear-gradient)
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .roundCheckbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+    
+  .roundCheckbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 4px;
+    height: 9px;
+    border: solid var(--Very-Light-Grayish-Blue);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  input:checked ~ .listText {
+    text-decoration: line-through;
+  }
+
+  .listText {
+    color: var(--Light-Very-Dark-Grayish-Blue);
+    flex-grow: 2;
+    font-size: 1.5rem;
+}
+
+.closeBtn img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.closeBtn {
+    display: none;
+}
+
+.todo:hover .closeBtn {
+    display: flex;
+}
+  
+.dragging {
+  opacity: 0.9;
+}
+  .todoButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  .itemsCount {
+    font-size: 1.4rem;
+    color: var(--Light-Dark-Grayish-Blue);
+  }
+
+  .filterTodoButtons {
+    justify-content: space-between;
+    color: var(--Light-Dark-Grayish-Blue);
+  }
+
+  .filterTodoButtons .btn {
+    color: var(--Light-Dark-Grayish-Blue);
+    margin: 0 .5rem;
+    font-weight: 700;
+  }
+
+  .filterTodoButtons .btn:hover {
+    color: var(--Light-Very-Dark-Grayish-Blue);
+  }
+
+  .clearBtn {
+    color: var(--Light-Dark-Grayish-Blue);
+    font-weight: 600;
+  }
+
+  .clearBtn:hover {
+    color: var(--Light-Very-Dark-Grayish-Blue);
+  }
+
+ .filterTodoButtons .btn.active {
+    color: var(--Bright-Blue);
+  }
+
+  h2 {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  .attribution {
+    font-size: 1.5rem;
+    width: 150%;
+  }
+
+  .attribution a {
+    color: var(--a-color);
+  }
+
+  /* dark mode */
+body.dark {
+    background: var(--Very-Dark-Blue);
+    color: var(--Very-Light-Gray);
+}
+
+.dark .bg {
+    background-image: url(/images/bg-desktop-dark.jpg);
+}
+
+.dark .todoInput, .dark .emptyRound, .dark #todoText, .dark .todoContainer{
+    background: var(--Very-Dark-Unsaturated-Blue);
+    color: var(--Dark-Light-Grayish-Blue);
+}
+
+.dark p {
+    color: var(--Dark-Light-Grayish-Blue);
+}
+
+.dark .emptyRound, .dark .checkmark {
+    border: 1px solid var(--Dark-Grayish-Blue);
+    background: var(--Very-Dark-Unsaturated-Blue);
+}
+
+.dark .roundCheckbox:hover input ~ .checkmark {
+    background-color: var(--Very-Dark-Unsaturated-Blue)
+  }
+
+.dark .todo {
+    border-bottom: 1px solid var(--Very-Dark-Grayish-Blue); 
+}
+
+.dark .filterTodoButtons .btn:hover, .dark .clearBtn:hover {
+    color: var(--Light-Grayish-Blue-hover);
+}
+
+@media (max-width: 900px){
+  .container {
+    width: 60%;
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+  }
+}
+
+@media (max-width: 630px) {
+  .bg {
+    background-image: url(/images/bg-mobile-light.jpg);
+  }
+
+  .dark .bg {
+    background-image: url(/images/bg-mobile-dark.jpg);
+  }
+  .itemsCount {
+    font-size: 1rem;
+  }
+
+  .filterTodoButtons {
+    width: 100%;
+  }
+
+  .filterTodoButtons .btn {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .clearBtn {
+    font-size: 1rem;
+  }
+}

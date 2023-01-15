@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Frontend Mentor | Todo app</title>
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="container">
+    <div class="header">
+      <h1>Todo</h1>
+      <button type="button" class="toggleBtn">
+        <img src="/images/icon-moon.svg" alt="" class="themeIcon">
+      </button>
+    </div>
+    <div class="main">
+      <div class="todoInput">
+        <div class="emptyRound">
+        </div>
+        <form action="" id="form">
+        <input type="text" name="todoText" id="todoText" autocomplete="off" placeholder="Create a new todo...">
+      </form>
+      </div>
+      <div class="todoContainer">
+        <ul class="todoList"> 
+        </ul>
+        <div class="todoButtons">
+          <div class="itemsCount">0 item left</div>
+          <div class="filterTodoButtons">
+            <button class="btn active"> All</button>
+            <button class="btn"> Active </button>
+            <button class="btn completed">Completed </button>
+          </div>
+          <button class="clearBtn">Clear Completed</button>
+        </div>
+      </div>
+      <div class="dragAndDrop">
+        <h2>Drag and drop to reorder list </h2>
+        <div class="todoContainer">
+          <ul class="todoList"> 
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/cutecoder96" target="_blank">cutecoder96(Mahveen)</a>.
+    </div>
+  </div>
+</body>
+
+</html>
